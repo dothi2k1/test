@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<style>
+    .Coursesit {
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .home {
+        margin-top: 50px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .course-card {
+        height: 100%;
+        border: 1px solid green;
+        border-radius: 10px;
+    }
+
+    img {
+        max-width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .text {
+        padding: 10px 5px;
+    }
+</style>
+
+<body ng-app="programmingCoursesApp">
+
+    <div class="Coursesit" ng-controller="CoursesView">
+        <input type="text" ng-model="search" placeholder="Search...">
+        <input type="text" ng-model="author" placeholder="Filter by Author...">
+
+        <div class="home">
+            <div class="course-card"
+                ng-repeat="course in filteredCourses = (courses | filter: {title: search, author: author})">
+                <img src="https://buddy.works/guides/covers/test-nodejs-app/share-nodejs-logo.png" alt="">
+                <div class="text">
+                    <h3>{{ course.title }}</h3>
+                    <p>Author: {{ course.author }}</p>
+                    <p>Description: {{ course.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('programmingCoursesApp', []);
+
+        app.controller('CoursesView', function ($scope) {
+            $scope.courses = [
+                {
+                    title: 'ASP.NET MVC',
+                    author: 'Thi Blue',
+                    description: 'Lorem ipsum dolor sit amet, consectet.'
+                },
+                {
+                    title: 'Node.Js',
+                    author: 'Minh Ne',
+                    description: 'Lorem ipsum dolor sit amet, consectet.'
+                },
+                {
+                    title: 'TypeScript',
+                    author: 'Thi Blue',
+                    description: 'Lorem ipsum dolor sit amet, consectet.'
+                },
+                {
+                    title: 'React.js',
+                    author: 'Minh Ne',
+                    description: 'Lorem ipsum dolor sit amet, consectet.'
+                },
+
+            ];
+        });
+    </script>
+</body>
+
+</html>
