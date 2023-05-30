@@ -40,9 +40,20 @@
     }
 
     input {
-        width: 500px;
+        width: 300px;
         height: 30px;
         border-radius: 5px;
+
+    }
+
+    button {
+        margin: 0 auto;
+        display: block;
+        padding: 5px 10px;
+        background-color: rgb(208, 255, 215);
+        border-radius: 5px;
+        border: 1px solid rgb(113, 255, 113);
+        cursor: pointer;
     }
 </style>
 
@@ -60,6 +71,7 @@
                     <h3>{{ course.title }}</h3>
                     <p>Author: {{ course.author }}</p>
                     <p>Description: {{ course.description }}</p>
+                    <button>Read More</button>
                 </div>
             </div>
         </div>
