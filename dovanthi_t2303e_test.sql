@@ -41,7 +41,7 @@ VALUES ('8GB RAM', 'RAM001', N'Random access memory', 20, 100, 36),
 SELECT * FROM Parts WHERE Price > 100;
 
 -- Cau 5 --cach 1
-SELECT * FROM Parts p
+SELECT p.* FROM Parts p
 INNER JOIN Categories c ON p.CateID = c.CateID
 WHERE c.CateName = 'CPU';
 -- Cau 5 --cach 2
